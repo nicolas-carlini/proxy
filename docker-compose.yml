@@ -38,3 +38,14 @@ services:
       mode: replicated
       replicas: 6
 
+  metrics:
+    build: ./metrics
+    ports:
+      - "5000"
+    env_file: .env
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+    networks:
+      - proxy

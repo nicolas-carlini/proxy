@@ -24,6 +24,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/metrics/metrics.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/proxy/proxy.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/requirements.txt">
           <value>
             <Attribute>

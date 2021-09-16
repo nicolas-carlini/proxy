@@ -17,8 +17,8 @@ def base():
 
 @app.route('/<path:path>')
 def proxy(path):
-    redis_ip_limit = redis.incr(request.remote_addr)
-    redis_path_per_ip = redis.incr(f'{request.remote_addr}-{path}')
+    redis_ip_limit = redis.incr(f'ip-limit-{request.remote_addr}')
+    redis_path_per_ip = redis.incr(f'path-per-ip-limit-{request.remote_addr}-{path}')
     if redis_ip_limit <= IP_LIMIT and redis_path_per_ip <= IP_LIMIT_PER_PATH:
         response = requests.request(request.method, url=URL+'/'+path, headers=request.headers,params=request.form,  data=request.get_json(), allow_redirects=True)
         excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
