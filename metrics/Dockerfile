@@ -1,5 +1,5 @@
 FROM python:3.8
-ADD . /code
+ADD ./ /code
 WORKDIR /code
 RUN pip install -r requirements.txt
-CMD python server.py
+CMD python metrics/metrics.py
