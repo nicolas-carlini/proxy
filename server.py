@@ -25,9 +25,10 @@ def proxy(path):
         headers = [(name, value) for (name, value) in response.raw.headers.items() if name.lower() not in excluded_headers]
         return Response(response.content, response.status_code, headers)
 
-    return {'path':path,'method':request.method, 'headers': str(request.headers), 'request': request.method, 'ip': request.remote_addr, 'redis_ip_limit':redis_ip_limit, 'redis_path_per_ip':redis_path_per_ip}
+    #return {'path':path,'method':request.method, 'headers': str(request.headers), 'request': request.method, 'ip': request.remote_addr, 'redis_ip_limit':redis_ip_limit, 'redis_path_per_ip':redis_path_per_ip}
+    return Response(status=404)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0")
 
