@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   proxy:
@@ -6,7 +6,7 @@ networks:
 
 services:
   redis:
-    image: 'bitnami/redis:latest'
+    image: "bitnami/redis:latest"
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     networks:
@@ -36,7 +36,7 @@ services:
       - proxy
     deploy:
       mode: replicated
-      replicas: 6
+      replicas: 3
 
   metrics:
     build: ./metrics
